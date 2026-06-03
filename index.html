@@ -1594,14 +1594,18 @@ document.querySelectorAll('button,a').forEach(el => {
 
 // ===================== SECRET SHORTCUT L+O =====================
 const pressed = new Set();
-  // NOUVEAU
-// NOUVEAU
-  // NOUVEAU
-document.addEventListener('keydown', e => {
-  if(e.key) pressed.add(e.key.toLowerCase());
-  if(pressed.has('l') && pressed.has('o')) {
-document.addEventListener('keyup', e => { if(e.key) pressed.delete(e.key.toLowerCase()); });
 
+document.addEventListener('keydown', e => {
+  if (e.key) pressed.add(e.key.toLowerCase());
+
+  if (pressed.has('l') && pressed.has('o')) {
+    openAdmin();
+  }
+});
+
+document.addEventListener('keyup', e => {
+  if (e.key) pressed.delete(e.key.toLowerCase());
+});
 // ===================== FIREBASE AUTH =====================
 if(auth) {
   auth.onAuthStateChanged(user => {
